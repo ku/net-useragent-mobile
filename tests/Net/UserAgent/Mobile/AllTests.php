@@ -51,6 +51,8 @@ require_once 'Net/UserAgent/Mobile/EZwebTestCase.php';
 require_once 'Net/UserAgent/Mobile/SoftBankTestCase.php';
 require_once 'Net/UserAgent/Mobile/WillcomTestCase.php';
 require_once 'Net/UserAgent/Mobile/NonMobileTestCase.php';
+require_once 'Net/UserAgent/Mobile/AndroidTestCase.php';
+require_once 'Net/UserAgent/Mobile/IOSTestCase.php';
 
 class Net_UserAgent_Mobile_AllTests
 {
@@ -67,6 +69,8 @@ class Net_UserAgent_Mobile_AllTests
         $suite->addTestSuite('Net_UserAgent_Mobile_SoftBankTestCase');
         $suite->addTestSuite('Net_UserAgent_Mobile_WillcomTestCase');
         $suite->addTestSuite('Net_UserAgent_Mobile_NonMobileTestCase');
+        $suite->addTestSuite('Net_UserAgent_Mobile_AndroidTestCase');
+        $suite->addTestSuite('Net_UserAgent_Mobile_IOSTestCase');
         return $suite;
     }
 }

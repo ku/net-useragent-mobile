@@ -147,6 +147,10 @@ class Net_UserAgent_Mobile
             $driver = 'SoftBank';
         } elseif (self::isWillcom($userAgent)) {
             $driver = 'Willcom';
+        } elseif (self::isAndroid($userAgent)) {
+            $driver = 'Android';
+        } elseif (self::isIOS($userAgent)) {
+            $driver = 'IOS';
         } else {
             $driver = 'NonMobile';
         }
@@ -328,6 +332,49 @@ class Net_UserAgent_Mobile
         return false;
     }
 
+    // }}}
+    // {{{ isAndroid()
+
+    /**
+     * Checks whether or not the user agent is android by a given user agent string.
+     *
+     * @param string $userAgent
+     * @return boolean
+     */
+    public static function isAndroid($userAgent = null)
+    {
+        if (is_null($userAgent)) {
+            $userAgent = @$_SERVER['HTTP_USER_AGENT'];
+        }
+
+        if (preg_match('!\bLinux\b.+?\bAndroid \d+\.\d+!i', $userAgent)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // }}}
+    /**
+     * Checks whether or not the user agent is ios by a given user agent string.
+     *
+     * @param string $userAgent
+     * @return boolean
+     */
+    public static function isIOS($userAgent = null)
+    {
+        if (is_null($userAgent)) {
+            $userAgent = @$_SERVER['HTTP_USER_AGENT'];
+        }
+
+        if (preg_match('!\b(iPhone|iPad|iPod)\b!i', $userAgent)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // }}}
     /**#@-*/
 
     /**#@+
@@ -342,7 +389,6 @@ class Net_UserAgent_Mobile
 
     /**#@-*/
 
-    // }}}
 }
 
 // }}}

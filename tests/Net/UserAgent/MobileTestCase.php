@@ -49,6 +49,7 @@ require_once 'Net/UserAgent/Mobile.php';
  * @package    Net_UserAgent_Mobile
  * @author     KUBO Atsuhiro <kubo@iteman.jp>
  * @copyright  2008-2009 KUBO Atsuhiro <kubo@iteman.jp>
+ * @copyright  2011 KUMAGAI Kentaro <ku0522a@gmail.com>
  * @license    http://www.opensource.org/licenses/bsd-license.php  New BSD License
  * @version    Release: @package_version@
  * @since      Class available since Release 0.31.0
@@ -96,6 +97,12 @@ class Net_UserAgent_MobileTestCase extends PHPUnit_Framework_TestCase
                           );
         $this->assertType('Net_UserAgent_Mobile_NonMobile',
                           Net_UserAgent_Mobile::factory('Mozilla/5.0 (Windows; U; Windows NT 5.1; ja; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4 GoogleToolbarFF 3.0.20070525')
+                          );
+        $this->assertType('Net_UserAgent_Mobile_Android',
+                          Net_UserAgent_Mobile::factory('Mozilla/5.0 (Linux; U; Android 1.6; ja-jp; SonyEricssonSOAndroid-01B Build/R1EA018) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1')
+                          );
+        $this->assertType('Net_UserAgent_Mobile_IOS',
+                          Net_UserAgent_Mobile::factory('Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_2 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C134 Safari/6533.18.5')
                           );
     }
 

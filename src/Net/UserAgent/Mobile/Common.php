@@ -323,6 +323,32 @@ abstract class Net_UserAgent_Mobile_Common
     }
 
     // }}}
+    // {{{ isAndroid()
+
+    /**
+     * returns true if the agent is Android
+     *
+     * @return boolean
+     */
+    public function isAndroid()
+    {
+        return false;
+    }
+
+    // }}}
+    // {{{ isIOS()
+
+    /**
+     * returns true if the agent is iOS
+     *
+     * @return boolean
+     */
+    public function isIOS()
+    {
+        return false;
+    }
+
+    // }}}
     // {{{ isTUKa()
 
     /**
