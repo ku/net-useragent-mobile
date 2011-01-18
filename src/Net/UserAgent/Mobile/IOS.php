@@ -135,8 +135,8 @@ class Net_UserAgent_Mobile_IOS extends Net_UserAgent_Mobile_Common
             $this->name = $m[1];
             $this->version = $m[2];
         }
-        if (preg_match('!\biPhone OS\s+((\d+)(_\d+)*)\b!i', $userAgent, $m)) {
-                $this->_iosVersion = preg_replace('/_/', '.', $m[1]);
+        if (preg_match('!\b(iPhone )?OS\s+((\d+)(_\d+)*)\b!i', $userAgent, $m)) {
+                $this->_iosVersion = preg_replace('/_/', '.', $m[2]);
         }
         if (preg_match('!\bAppleWebKit/((\d+)(\.\d+)*)\b!i', $userAgent, $m)) {
                 $this->_webkitVersion = $m[1];
