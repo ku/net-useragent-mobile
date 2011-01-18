@@ -83,6 +83,8 @@ class Net_UserAgent_Mobile_IOS extends Net_UserAgent_Mobile_Common
 
     protected $_webkitVersion;
 
+    protected $_deviceName;
+
     /**#@-*/
 
     /**#@+
@@ -140,6 +142,9 @@ class Net_UserAgent_Mobile_IOS extends Net_UserAgent_Mobile_Common
         }
         if (preg_match('!\bAppleWebKit/((\d+)(\.\d+)*)\b!i', $userAgent, $m)) {
                 $this->_webkitVersion = $m[1];
+        }
+        if (preg_match('!\b(iPhone|iPad|iPod)\b!i', $userAgent, $m)) {
+                $this->_deviceName = $m[1];
         }
     }
 
@@ -219,6 +224,21 @@ class Net_UserAgent_Mobile_IOS extends Net_UserAgent_Mobile_Common
     public function getWebKitVersion()
     {
         return $this->_webkitVersion;
+    }
+    // }}}
+	
+    // {{{ isSmallDevice()
+
+    /**
+     * returns true if device has 3.5" display
+
+     *
+     * @return string
+     */
+    public function isSmallDevice()
+    {
+		$smallDevices = array('iPod', 'iPhone');
+        return ($this->_deviceName && in_array($this->_deviceName, $smallDevices));
     }
     // }}}
 }

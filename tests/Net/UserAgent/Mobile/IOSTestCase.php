@@ -75,10 +75,10 @@ class Net_UserAgent_Mobile_IOSTestCase extends PHPUnit_Framework_TestCase
      */
 
     private $_profiles = array(
-							   'Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10' => array('ios_version' => '3.2', 'version' => '5.0', 'webkit_version' => '531.21.10'),
-							   'Mozilla/5.0 (iPod; U; CPU like Mac OS X; ja-jp) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4B1 Safari/419.3' => array('ios_version' => '', 'version' => '5.0', 'webkit_version' => '420.1'),
-							   'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8C148a' => array('ios_version' => '4.2.1', 'version' => '5.0', 'webkit_version' => '533.17.9'),
-							   'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10' => array('ios_version' => '3.2', 'version' => '5.0', 'webkit_version' => '531.21.10')
+							   'Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10' => array('ios_version' => '3.2', 'version' => '5.0', 'webkit_version' => '531.21.10', 'issmall' => false),
+							   'Mozilla/5.0 (iPod; U; CPU like Mac OS X; ja-jp) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4B1 Safari/419.3' => array('ios_version' => '', 'version' => '5.0', 'webkit_version' => '420.1', 'issmall' => true),
+							   'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8C148a' => array('ios_version' => '4.2.1', 'version' => '5.0', 'webkit_version' => '533.17.9', 'issmall' => true),
+							   'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10' => array('ios_version' => '3.2', 'version' => '5.0', 'webkit_version' => '531.21.10', 'issmall' => false),
                                );
 
     /**#@-*/
@@ -104,6 +104,7 @@ class Net_UserAgent_Mobile_IOSTestCase extends PHPUnit_Framework_TestCase
 			$this->assertTrue($agent->getVersion() === $profile['version']);
 			$this->assertTrue($agent->getIOSVersion() == $profile['ios_version']);
 			$this->assertTrue($agent->getWebKitVersion() === $profile['webkit_version']);
+			$this->assertTrue($agent->isSmallDevice() === $profile['issmall']);
         }
     }
 
