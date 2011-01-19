@@ -432,6 +432,34 @@ abstract class Net_UserAgent_Mobile_Common
     }
 
     // }}}
+    // {{{ isAndroid()
+
+    /**
+     * Returns whether the agent is Android or not.
+     *
+     * @return boolean
+     * @since Method available since Release 0.31.0
+     */
+    function isAndroid()
+    {
+        return false;
+    }
+
+    // }}}
+    // {{{ isIOS()
+
+    /**
+     * Returns whether the agent is iOS or not.
+     *
+     * @return boolean
+     * @since Method available since Release 0.31.0
+     */
+    function isIOS()
+    {
+        return false;
+    }
+
+    // }}}
     // {{{ getModel()
 
     /**
